@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { environment } from 'environment';
@@ -9,7 +9,7 @@ import { environment } from 'environment';
 })
 export class ForecastService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getForecast() {
     return this.getCurrentLocation()
