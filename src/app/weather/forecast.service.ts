@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { environment } from 'environment';
 
 @Injectable({
@@ -20,7 +20,8 @@ export class ForecastService {
             .set('lon', String(coords.longitude))
             .set('units', 'metric')
             .set('appid', environment.apiKey)
-        })
+        }),
+        switchMap(params => {})
       )
   }
 
