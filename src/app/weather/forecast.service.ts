@@ -8,6 +8,7 @@ import { environment } from 'environment';
   providedIn: 'root'
 })
 export class ForecastService {
+  private url = 'https://api.openweathermap.org/data/2.5/forecast'
 
   constructor(private http: HttpClient) { }
 
@@ -21,7 +22,7 @@ export class ForecastService {
             .set('units', 'metric')
             .set('appid', environment.apiKey)
         }),
-        switchMap(params => {})
+        switchMap(params => this.http.get(this.url, { params }))
       )
   }
 
