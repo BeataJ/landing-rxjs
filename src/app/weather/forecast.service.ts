@@ -4,6 +4,15 @@ import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { environment } from 'environment';
 
+interface OpenWeatherResponse {
+  list: {
+    dt_text: string;
+    main: {
+      temp: number
+    }
+  }[]
+}
+
 @Injectable({
   providedIn: 'root'
 })
