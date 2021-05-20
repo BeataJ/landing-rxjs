@@ -31,7 +31,7 @@ export class ForecastService {
             .set('units', 'metric')
             .set('appid', environment.apiKey)
         }),
-        switchMap(params => this.http.get(this.url, { params }))
+        switchMap(params => this.http.get<OpenWeatherResponse>(this.url, { params }))
       )
   }
 
