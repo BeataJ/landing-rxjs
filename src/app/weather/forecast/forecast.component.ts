@@ -10,8 +10,8 @@ export class ForecastComponent implements OnInit {
 
   constructor(forcastServise: ForecastService) {
     forcastServise.getForecast()
-      .subscribe((weatherForcast) => {
-        console.log(weatherForcast)
+      .subscribe((forecastData) => {
+        console.log(forecastData)
       })
   }
 
