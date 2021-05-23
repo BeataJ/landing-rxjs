@@ -15,6 +15,14 @@ export class ForecastComponent implements OnInit {
       
   }
 
+  // forecastData = []
+  //  constructor(forecastServise: ForecastService) {
+  //  forecastServise.getForecast().subscribe(forecastData => {
+//    this.forecastData = forecastdata;
+  // }
+      
+  // }
+
   ngOnInit(): void {
   }
 
