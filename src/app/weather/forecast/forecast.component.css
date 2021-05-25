@@ -19,3 +19,9 @@
 .day {
     font-style: italic;
 }
+
+.local {
+    text-align: center;
+    margin: 0 10px 2px 10px;
+    font-size: .9rem;
+}
