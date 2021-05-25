@@ -8,7 +8,7 @@ import { ForecastService } from '../forecast.service'
   styleUrls: ['./forecast.component.css']
 })
 export class ForecastComponent implements OnInit {
-  forecast$: Observable<{dateString: string; temp: number}[]>;
+  forecast$: Observable<{ dateString: string; temp: number; description: string}[]>;
 
   constructor(forecastServise: ForecastService) {
     this.forecast$ = forecastServise.getForecast()

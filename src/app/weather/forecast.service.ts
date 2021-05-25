@@ -10,7 +10,10 @@ interface OpenWeatherResponse {
     dt_txt: string;
     main: {
       temp: number
-    }
+    };
+    weather: [{
+      description: string
+    }]
   }[]
 }
 
@@ -39,7 +42,8 @@ export class ForecastService {
         map(value => {
           return {
             dateString: value.dt_txt,
-            temp: value.main.temp
+            temp: value.main.temp,
+            description: value.weather[0].description
           }
         }),
         toArray(),
