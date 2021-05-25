@@ -8,4 +8,10 @@ export class NotificationsService {
   messages: Subject<any>;
 
   constructor() { }
+
+  addSuccess(message: string) {}
+
+  addError(message: string) {}
+
+  clearMessage(id: number) {}
 }
