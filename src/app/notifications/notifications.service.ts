@@ -33,7 +33,12 @@ export class NotificationsService {
     })
   }
 
-  clearMessage(id: number) {}
+  clearMessage(id: number) {
+    this.messages.next({
+      id,
+      type: 'clear'
+    })
+  }
 
   private randomId() {
     return Math.round(Math.random() * 10000);
