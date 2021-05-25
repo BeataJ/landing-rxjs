@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 interface Command {
   id: number;
   type: 'success' | 'error' | 'clear';
-  text: string
+  text?: string
 }
 
 @Injectable({
@@ -18,7 +18,11 @@ export class NotificationsService {
   }
 
   addSuccess(message: string) {
-    this.messages.next(message);
+    this.messages.next({
+      id: 123,
+      type: 'success',
+      text: message
+    });
   }
 
   addError(message: string) {
@@ -26,4 +30,8 @@ export class NotificationsService {
   }
 
   clearMessage(id: number) {}
+
+  private randomId() {
+    return Math.round(Math.random() * 10000);
+  }
 }
