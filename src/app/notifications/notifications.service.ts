@@ -19,14 +19,18 @@ export class NotificationsService {
 
   addSuccess(message: string) {
     this.messages.next({
-      id: 123,
+      id: this.randomId(),
       type: 'success',
       text: message
     });
   }
 
   addError(message: string) {
-    this.messages.next(message)
+    this.messages.next({
+      id: this.randomId(),
+      type: 'error',
+      text: message
+    })
   }
 
   clearMessage(id: number) {}
