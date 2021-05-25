@@ -1,4 +1,5 @@
 <ul class="list-group">
+    <p class="local">Your Local Weather</p>
     <li class="weather-item list-group-item" *ngFor="let forecast of forecast$ | async">
         <p class="temp">{{ forecast.temp | number: '1.0-0'}}°C</p>
         <img src="{{'http://openweathermap.org/img/w/' + forecast.icon + '.png'}}" alt="icon" />
