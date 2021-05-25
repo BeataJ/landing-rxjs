@@ -1,7 +1,8 @@
 <ul class="list-group">
     <li class="weather-item list-group-item" *ngFor="let forecast of forecast$ | async">
         <p class="temp">{{ forecast.temp | number: '1.0-0'}}°C</p>
-        <p>{{forecast.description }} </p>
+        <img src="{{'http://openweathermap.org/img/w/' + forecast.icon + '.png'}}" alt="icon" />
+        <!-- <p>{{forecast.description }} </p> -->
         <p class="day">{{ forecast.dateString | date: 'E'}}</p>
     </li>
 </ul>

@@ -12,7 +12,8 @@ interface OpenWeatherResponse {
       temp: number
     };
     weather: [{
-      description: string
+      description: string,
+      icon: string,
     }]
   }[]
 }
@@ -43,7 +44,8 @@ export class ForecastService {
           return {
             dateString: value.dt_txt,
             temp: value.main.temp,
-            description: value.weather[0].description
+            description: value.weather[0].description,
+            icon: value.weather[0].icon
           }
         }),
         toArray(),
