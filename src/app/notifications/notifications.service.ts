@@ -7,7 +7,9 @@ import { Subject } from 'rxjs';
 export class NotificationsService {
   messages: Subject<any>;
 
-  constructor() { }
+  constructor() { 
+    this.messages = new Subject<any>()
+  }
 
   addSuccess(message: string) {}
 
