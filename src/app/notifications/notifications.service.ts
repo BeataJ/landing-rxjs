@@ -18,6 +18,18 @@ export class NotificationsService {
     this.messages = new Subject<Command>()
   }
 
+  getMessages() {
+    return this.messages.pipe(
+      scan((acc, value) => {
+        if (value.type === 'clear') {
+          return acc.filter(message => message.id !== value.id)
+        } else {
+          return [...acc, value]
+        }
+      }, [])
+    )
+  }
+
   addSuccess(message: string) {
     this.messages.next({
       id: this.randomId(),
