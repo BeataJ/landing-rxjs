@@ -1,9 +1,14 @@
 <ul class="list-group">
     <p class="local">Your Local Weather</p>
+    
     <li class="weather-item list-group-item" *ngFor="let forecast of forecast$ | async">
-        <p class="temp">{{ forecast.temp | number: '1.0-0'}}°C</p>
-        <img src="{{'http://openweathermap.org/img/w/' + forecast.icon + '.png'}}" alt="icon" />
-        <!-- <p>{{forecast.description }} </p> -->
-        <p class="day">{{ forecast.dateString | date: 'E'}}</p>
+        <div class="center">
+            <p class="temp">{{ forecast.temp | number: '1.0-0'}}°C</p>
+            <img src="{{'http://openweathermap.org/img/w/' + forecast.icon + '.png'}}" alt="icon" class="icon"/>
+            <!-- <p>{{forecast.description }} </p> -->
+            <p class="day">{{ forecast.dateString | date: 'E'}}</p>
+                
+        </div>
     </li>
+   
 </ul>

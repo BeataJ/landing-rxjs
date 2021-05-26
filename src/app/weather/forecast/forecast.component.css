@@ -7,9 +7,9 @@
     display: flex;
 }
 
+
 .temp, .day {
     margin: 0;
-    text-align: center;
 }
 
 .temp {
@@ -25,3 +25,10 @@
     margin: 0 10px 2px 10px;
     font-size: .9rem;
 }
+
+.center {
+    display: flex; 
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+} 
