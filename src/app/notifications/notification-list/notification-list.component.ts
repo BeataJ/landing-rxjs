@@ -11,15 +11,19 @@ export class NotificationListComponent implements OnInit {
   messages$: Observable<Command[]>
 
 
-  constructor(notificationsService: NotificationsService) { 
-    this.messages$ = notificationsService.messagesOutput;
+  constructor(private notificationsService: NotificationsService) { 
+    this.messages$ = this.notificationsService.messagesOutput;
 
     setInterval(() => {
-      notificationsService.addError('IT IS WORKING OOP OPPS ERR')
+      this.notificationsService.addError('IT IS WORKING OOP OPPS ERR')
     }, 500)
   }
 
   ngOnInit(): void {
+  }
+
+  clearMessage(id: number) {
+    this.notificationsService.clearMessage(id)
   }
 
 }
