@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationsService } from '../notifications.service';
 
 @Component({
   selector: 'app-notification-list',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notification-list.component.css']
 })
 export class NotificationListComponent implements OnInit {
+  
 
-  constructor() { }
+  constructor(notificationsService: NotificationsService) { 
+
+  }
 
   ngOnInit(): void {
   }
