@@ -1,7 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, switchMap, pluck, mergeMap, filter, toArray, share } from 'rxjs/operators';
+import {
+  map,
+  switchMap,
+  pluck,
+  mergeMap,
+  filter,
+  toArray,
+  share,
+  tap,
+}
+  from 'rxjs/operators';
 import { environment } from 'environment';
 import { NotificationsService } from '../notifications/notifications.service';
 
@@ -63,6 +73,10 @@ export class ForecastService {
         },
         (err) => observer.error(err)
       )
-    });
+    }).pipe(
+      tap(() => {
+        this.notificationService.addSuccess('Got your location')
+      })
+    );
   }
 }
