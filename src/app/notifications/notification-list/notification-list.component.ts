@@ -14,9 +14,8 @@ export class NotificationListComponent implements OnInit {
   constructor(private notificationsService: NotificationsService) { 
     this.messages$ = this.notificationsService.messagesOutput;
 
-    setInterval(() => {
-      this.notificationsService.addError('IT IS WORKING OOP OPPS ERR')
-    }, 500)
+    
+
   }
 
   ngOnInit(): void {

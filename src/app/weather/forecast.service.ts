@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, switchMap, pluck, mergeMap, filter, toArray, share } from 'rxjs/operators';
 import { environment } from 'environment';
+import { NotificationsService } from '../notifications/notifications.service';
 
 
 interface OpenWeatherResponse {
