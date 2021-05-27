@@ -74,9 +74,12 @@ export class ForecastService {
         (err) => observer.error(err)
       )
     }).pipe(
-      tap(() => {
+      tap(
+        () => {
         this.notificationService.addSuccess('Got your location')
-      })
+      },
+      (err)=> this.notificationService.addError('Failed to get your location')
+      )
     );
   }
 }
