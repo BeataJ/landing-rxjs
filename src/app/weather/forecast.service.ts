@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import {
   map,
   switchMap,
@@ -10,6 +10,7 @@ import {
   toArray,
   share,
   tap,
+  catchError
 }
   from 'rxjs/operators';
 import { environment } from 'environment';
