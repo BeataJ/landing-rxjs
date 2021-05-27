@@ -45,11 +45,17 @@ export class NotificationsService {
   }
 
   addError(message: string) {
+    const id = this.randomId()
+
     this.messagesInput.next({
-      id: this.randomId(),
+      id,
       type: 'error',
       text: message
     })
+
+    setTimeout(() => {
+      this.clearMessage(id)
+    }, 5000)
   }
 
   clearMessage(id: number) {
