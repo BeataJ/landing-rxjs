@@ -15,7 +15,7 @@ export class NotificationListComponent implements OnInit {
     this.messages$ = notificationsService.messagesOutput;
 
     setInterval(() => {
-      notificationsService.addSuccess('IT IS WORKING OOP OPPS ERR')
+      notificationsService.addError('IT IS WORKING OOP OPPS ERR')
     }, 500)
   }
 

@@ -5,5 +5,5 @@ class="alert"
 >
     {{ message.text}}
 
-    <button class="close">x</button>
+    <button class="close"  (click)="clearMessage(message.id)">x</button>
 </div>
