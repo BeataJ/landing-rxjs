@@ -13,14 +13,11 @@ interface Command {
 })
 export class NotificationsService {
   messagesInput: Subject<Command>;
-  messagesOutput: Observable<Command>[]
+  messagesOutput: Observable<Command[]>
 
   constructor() { 
-    this.messagesInput = new Subject<Command>()
-  }
-
-  getMessages() {
-    return this.messagesInput.pipe(
+    this.messagesInput = new Subject<Command>();
+    this.messagesOutput = this.messagesInput.pipe(
       scan((acc, value) => {
         if (value.type === 'clear') {
           return acc.filter(message => message.id !== value.id)
@@ -29,7 +26,9 @@ export class NotificationsService {
         }
       }, [])
     )
+
   }
+
 
   addSuccess(message: string) {
     this.messagesInput.next({
