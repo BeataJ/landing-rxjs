@@ -31,11 +31,17 @@ export class NotificationsService {
 
 
   addSuccess(message: string) {
+    const id = this.randomId()
+
     this.messagesInput.next({
-      id: this.randomId(),
+      id,
       type: 'success',
       text: message
     });
+
+    setTimeout(() => {
+      this.clearMessage(id)
+    }, 5000)
   }
 
   addError(message: string) {
