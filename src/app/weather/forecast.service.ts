@@ -78,9 +78,17 @@ export class ForecastService {
       tap(
         () => {
         this.notificationService.addSuccess('Got your location')
-      },
-      (err)=> this.notificationService.addError('Failed to get your location')
-      )
+      }
+      // (err)=> this.notificationService.addError('Failed to get your location')
+      ),
+      catchError((err) => {
+        // #1 - Handle the error
+        this.notificationService.addError('Failed to get your location');
+
+        // #2 - Return a new observable
+        return throwError(err)
+
+      })
     );
   }
 }
