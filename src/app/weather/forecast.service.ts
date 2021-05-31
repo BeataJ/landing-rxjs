@@ -10,7 +10,8 @@ import {
   toArray,
   share,
   tap,
-  catchError
+  catchError,
+  retry
 }
   from 'rxjs/operators';
 import { environment } from 'environment';
