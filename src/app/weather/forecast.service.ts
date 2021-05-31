@@ -58,6 +58,14 @@ export class ForecastService {
             )
           )
         ),
+        catchError((err) => {
+          // #1 - Handle the error
+          this.notificationService.addError('Failed to get your weatherforcast');
+
+          // #2 - Return a new observable
+          return throwError(err)
+
+        }),
         pluck('list'),
         mergeMap(value => of(...value)),
         filter((value, index) => index % 8 === 0),
