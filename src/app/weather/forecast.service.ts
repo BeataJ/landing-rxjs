@@ -49,7 +49,15 @@ export class ForecastService {
             .set('units', 'metric')
             .set('appid', environment.apiKey)
         }),
-        switchMap(params => this.http.get<OpenWeatherResponse>(this.url, { params })),
+        switchMap(params => this.http.get<OpenWeatherResponse>(this.url, { params })
+          .pipe(
+            tap(
+              () => {
+                this.notificationService.addSuccess('Got your weatherforcast')
+              }
+            )
+          )
+        ),
         pluck('list'),
         mergeMap(value => of(...value)),
         filter((value, index) => index % 8 === 0),
@@ -68,7 +76,6 @@ export class ForecastService {
 
   getCurrentLocation() {
     return new Observable<GeolocationCoordinates>((observer) => {
-      console.log('Trying to get location...')
       window.navigator.geolocation.getCurrentPosition(
         (position) => {
           observer.next(position.coords);
@@ -80,9 +87,9 @@ export class ForecastService {
       retry(1),
       tap(
         () => {
-        this.notificationService.addSuccess('Got your location')
-      }
-      // (err)=> this.notificationService.addError('Failed to get your location')
+          this.notificationService.addSuccess('Got your location')
+        }
+        // (err)=> this.notificationService.addError('Failed to get your location')
       ),
       catchError((err) => {
         // #1 - Handle the error
