@@ -21,7 +21,7 @@ export class NewsApiService {
   private apiKey = environment.apiNewsKey;
   private country = 'ca';
 
-  pagesInput: Subject<number>;
+  private pagesInput: Subject<number>;
   pagesOutput: Observable<any>;
   numberOfPages: Subject<number>;
 
@@ -46,5 +46,9 @@ export class NewsApiService {
       }),
       pluck('articles')
     );
+   }
+
+   getPage(page: number) {
+     this.pagesInput.next(page);
    }
 }
