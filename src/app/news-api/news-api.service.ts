@@ -39,6 +39,10 @@ export class NewsApiService {
       }),
       switchMap((params) => {
         return this.http.get<NewsApiResponse>(this.url, { params });
+      }),
+      tap(response => {
+        const totalPages = Math.ceil(response.totalResults / this.pageSize);
+        this.numberOfPages.next(totalPages);
       })
     );
    }
