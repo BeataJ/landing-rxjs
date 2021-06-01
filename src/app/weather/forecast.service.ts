@@ -47,7 +47,7 @@ export class ForecastService {
             .set('lat', String(coords.latitude))
             .set('lon', String(coords.longitude))
             .set('units', 'metric')
-            .set('appid', environment.apiKey)
+            .set('appid', environment.apiWeatherKey)
         }),
         switchMap(params => this.http.get<OpenWeatherResponse>(this.url, { params })
           .pipe(
