@@ -13,7 +13,8 @@ export class NewsApiService {
   private country = 'ca';
 
   pagesInput: Subject<number>;
-  pagesOutput: Observable<any>
+  pagesOutput: Observable<any>;
+  numberOfPages: Observable<number>;
 
   constructor() { }
 }
