@@ -4,6 +4,14 @@ import { Subject, Observable } from 'rxjs';
 import { tap, map, switchMap } from 'rxjs/operators';
 import { HttpParams, HttpClient } from '@angular/common/http';
 
+interface NewsApiResponse {
+  totalResults: number;
+  articles: {
+    title: string;
+    url: string;
+  }[]
+}
+
 @Injectable({
   providedIn: 'root'
 })
