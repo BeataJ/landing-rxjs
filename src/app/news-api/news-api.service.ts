@@ -27,7 +27,9 @@ export class NewsApiService {
           .set('pageSize', String(this.pageSize))
           .set('page', String(page))
       }),
-      
+      switchMap((params) => {
+        return this.http.get(this.url, { params })
+      })
     );
    }
 }
