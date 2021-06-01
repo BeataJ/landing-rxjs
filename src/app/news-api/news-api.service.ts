@@ -26,6 +26,8 @@ export class NewsApiService {
   numberOfPages: Subject<number>;
 
   constructor(private http: HttpClient) {
+    this.numberOfPages = new Subject();
+
     this.pagesInput = new Subject();
     this.pagesOutput = this.pagesInput.pipe(
       map((page) => {
