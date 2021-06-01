@@ -5,6 +5,10 @@ import { environment } from 'environment'
   providedIn: 'root'
 })
 export class NewsApiService {
+  private url = '';
+  private pageSize = 10;
+  private apiKey = environment.apiNewsKey;
+  private country = '';
 
   constructor() { }
 }
