@@ -23,7 +23,7 @@ export class NewsApiService {
 
   pagesInput: Subject<number>;
   pagesOutput: Observable<any>;
-  numberOfPages: Observable<number>;
+  numberOfPages: Subject<number>;
 
   constructor(private http: HttpClient) {
     this.pagesInput = new Subject();
@@ -36,7 +36,7 @@ export class NewsApiService {
           .set('page', String(page))
       }),
       switchMap((params) => {
-        return this.http.get(this.url, { params })
+        return this.http.get<NewsApiResponse>(this.url, { params });
       })
     );
    }
