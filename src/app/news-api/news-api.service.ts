@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'environment';
 import { Subject, Observable } from 'rxjs';
 import { tap, map, switchMap } from 'rxjs/operators';
-import { HttpParams } from '@angular/common/http';
+import { HttpParams, HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class NewsApiService {
   pagesOutput: Observable<any>;
   numberOfPages: Observable<number>;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.pagesInput = new Subject();
     this.pagesOutput = this.pagesInput.pipe(
       map((page) => {
