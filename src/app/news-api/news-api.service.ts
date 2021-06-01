@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'environment'
+import { environment } from 'environment';
+import { Subject } from 'rxjs';
+import { tap, map, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
