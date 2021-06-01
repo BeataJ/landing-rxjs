@@ -5,10 +5,10 @@ import { environment } from 'environment'
   providedIn: 'root'
 })
 export class NewsApiService {
-  private url = '';
+  private url = 'https://newsapi.org/v2/top-headlines';
   private pageSize = 10;
   private apiKey = environment.apiNewsKey;
-  private country = '';
+  private country = 'ca';
 
   constructor() { }
 }
