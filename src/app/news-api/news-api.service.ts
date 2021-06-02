@@ -11,10 +11,7 @@ interface Article {
 
 interface NewsApiResponse {
   totalResults: number;
-  articles: {
-    title: string;
-    url: string;
-  }[]
+  articles: Article[];
 }
 
 @Injectable({
@@ -27,7 +24,7 @@ export class NewsApiService {
   private country = 'ca';
 
   private pagesInput: Subject<number>;
-  pagesOutput: Observable<any>;
+  pagesOutput: Observable<Article[]>;
   numberOfPages: Subject<number>;
 
   constructor(private http: HttpClient) {
