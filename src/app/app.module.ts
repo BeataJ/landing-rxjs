@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { WeatherModule } from './weather/weather.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { NewsApiModule } from './news-api/news-api.module';
-import { SharedModule } from './shared/shared.module'
+
 
 import { AppComponent } from './app.component';
 
@@ -19,7 +19,6 @@ import { AppComponent } from './app.component';
     WeatherModule,
     NotificationsModule,
     NewsApiModule,
-    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
