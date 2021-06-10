@@ -19,7 +19,7 @@ export class PaginatorComponent implements OnInit {
       this.currentPage,
       this.currentPage +1,
       this.currentPage +2
-    ]
+    ].filter(pageNumber => pageNumber >= 1 && pageNumber <= this.numberOfPages)
   }
 
   ngOnInit(): void {
